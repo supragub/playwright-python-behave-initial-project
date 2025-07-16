@@ -1,0 +1,11 @@
+services:
+  initial-playwright-bdd:
+    build: .
+    volumes:
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+      - ./recordings/screenshots:/app/recordings/screenshots
+    environment:
+      - TZ=Europe/Budapest
+    command: >
+      sh -c "python -m playwright install && python runner_docker.py"
